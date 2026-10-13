@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "framework_version": "0.3.0",
+  "framework_version": "0.4.0",
   "modules": [
     {
       "id": "core",
@@ -79,6 +79,15 @@
         "FORGE Evaluate:",
         "FORGE Select:",
         "FORGE Improve:"
+      ],
+      "status": "proposed"
+    },
+    {
+      "id": "live-evaluation",
+      "version": "0.4.0",
+      "path": "modules/LIVE_EVALUATION.md",
+      "triggers": [
+        "FORGE Live Evaluate:"
       ],
       "status": "proposed"
     }

@@ -1,0 +1,68 @@
+{
+  "schema_version": "0.4",
+  "id": "forge-five-domain-pilot",
+  "cases": [
+    {
+      "id": "math-01",
+      "category": "mathematics",
+      "prompt": "Solve x² - 5x + 6 = 0; give both roots, factoring, substitution and one common mistake.",
+      "checks": [
+        {
+          "type": "contains_all",
+          "values": [
+            "2",
+            "3"
+          ]
+        },
+        {
+          "type": "manual_review",
+          "rubric": "Verify algebra, both substitutions, clarity, common error"
+        }
+      ]
+    },
+    {
+      "id": "research-01",
+      "category": "research",
+      "prompt": "Explain what evidence would support a recent software release claim.",
+      "checks": [
+        {
+          "type": "manual_review",
+          "rubric": "Independently verify claim and dates against primary sources; avoid fabricated citations"
+        }
+      ]
+    },
+    {
+      "id": "ux-01",
+      "category": "ui-ux",
+      "prompt": "Audit keyboard interaction of a tablist; distinguish findings from assumptions.",
+      "checks": [
+        {
+          "type": "manual_review",
+          "rubric": "Observed defects, severity, evidence, reproducibility and APG guidance"
+        }
+      ]
+    },
+    {
+      "id": "code-01",
+      "category": "software",
+      "prompt": "Implement a function that rejects duplicate identifiers.",
+      "checks": [
+        {
+          "type": "manual_review",
+          "rubric": "Run independent correctness/edge-case tests, check security and regressions"
+        }
+      ]
+    },
+    {
+      "id": "artifact-01",
+      "category": "artifact",
+      "prompt": "Prepare an editable one-page summary of a supplied project brief.",
+      "checks": [
+        {
+          "type": "manual_review",
+          "rubric": "Actual file integrity, source grounding, editability, render/overflow"
+        }
+      ]
+    }
+  ]
+}

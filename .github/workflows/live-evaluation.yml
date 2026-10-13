@@ -1,0 +1,21 @@
+name: FORGE Live Evaluation Readiness
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  readiness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Static framework validation
+        run: python scripts/validate.py
+      - name: Verify suite structure without inventing provider responses
+        run: python -c "import json; from engine.live import validate_suite; validate_suite(json.load(open('benchmarks/live-suite.json')))"

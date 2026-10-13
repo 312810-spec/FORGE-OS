@@ -1,25 +1,24 @@
 # FORGE OS
 
-**Reusable, versioned, evidence-led AI framework** · v0.3.0 candidate
+**Modular evidence-led AI framework** · v0.4 candidate
 
-FORGE OS is a methodology and lightweight execution-quality toolkit, not a general-purpose computer operating system. **AI prepares. User reviews. User approves.**
+FORGE is not a traditional operating system. Its core commitment is **AI prepares; human reviews and approves**.
 
-## Start
-- [ChatGPT Project adapter v0.3](integrations/CHATGPT_V03.md) — scoped, manually configured callouts
-- [Core](core/OPERATING_CONTRACT.md) and [module registry](registry/modules.json)
-- [Intelligence and Evaluation](modules/INTELLIGENCE.md)
-- [Research cross-reference](research/V0.2-CROSS-REFERENCE.md)
-- [Release quality gates](quality/GATES.md)
+## v0.4: actual-output evaluation
+- [Live Evaluation module](modules/LIVE_EVALUATION.md) and [ChatGPT adapter](integrations/CHATGPT_V04.md)
+- [Five-category benchmark suite](benchmarks/live-suite.json): mathematical reasoning, research, UI/UX, software engineering, artifact production
+- [Manual actual-output capture, offline assertions and baseline comparison](engine/live.py)
+- [CI readiness workflow](.github/workflows/live-evaluation.yml) verifies suite structure and unit tests.
+- Existing [v0.3 intelligence engine](modules/INTELLIGENCE.md) and [module registry](registry/modules.json) remain available.
 
-## Runnable checks
+**Limits:** No live LLM API invocation, automated semantic human grading, executable software artifact tests or binary document rendering are claimed. Capturing supplied real AI responses is supported, and subjective checks stay pending manual independent review. No API key required for offline mode.
+
+## Commands
 ```bash
 python scripts/validate.py
 python -m unittest discover -s tests -v
-python engine/router.py --json "FORGE Assurance: audit draft"
-python engine/evaluate.py --suite benchmarks/suite.json --baseline benchmarks/fixtures/baseline.json --candidate benchmarks/fixtures/candidate.json
+python engine/live.py capture --out run.json --task-id t1 --run-id r1 --arm forge --source-ref response.txt --output response.txt --case-id math-01
+python engine/live.py evaluate --suite benchmarks/live-suite.json --run run.json
 ```
 
-## Scope and honesty
-v0.3 implements deterministic capability-based routing and regression evaluation with synthetic fixtures. The candidate fixture is hand-authored, not produced by a live model; its improved score is not proof of better AI results. GitHub Actions tests and archives reports. No provider SDK, live model execution, actual per-token billing, independent human grading or autonomous module improvement is implemented. Other ChatGPT projects require the integration contract and accessible source.
-
-See [v0.2 design](decisions/0002-v02.md) and [v0.3 decision](decisions/0003-v03.md).
+See [v0.4 implementation contract](modules/LIVE_EVALUATION.md).
