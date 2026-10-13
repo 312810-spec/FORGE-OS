@@ -11,7 +11,6 @@ import pathlib
 import re
 import sys
 from datetime import datetime, timezone
-from engine.evaluate import evaluate, compare
 
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 CATEGORIES={"mathematics","research","ui-ux","software","artifact"}
