@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FORGE evidence record",
+  "type": "object",
+  "required": [
+    "id",
+    "module",
+    "claim",
+    "status",
+    "evidence",
+    "limitations"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "module": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "proposed",
+        "source-inspected",
+        "static-tested",
+        "runtime-tested",
+        "adopted"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source",
+          "observation"
+        ],
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "string"
+          },
+          "retrieved_at": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "observation": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "verification_method": {
+      "type": "string"
+    },
+    "severity": {
+      "enum": [
+        "critical",
+        "high",
+        "medium",
+        "low",
+        "none"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
