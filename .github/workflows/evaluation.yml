@@ -1,0 +1,26 @@
+name: FORGE Evaluation
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-evaluation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Fixture regression checks
+        run: python engine/evaluate.py --suite benchmarks/suite.json --baseline benchmarks/fixtures/baseline.json --candidate benchmarks/fixtures/candidate.json --out reports/v03-evaluation.json
+      - name: Archive report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forge-v03-evaluation
+          path: reports/v03-evaluation.json
+          if-no-files-found: warn

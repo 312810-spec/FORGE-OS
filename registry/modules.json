@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "framework_version": "0.2.0",
+  "framework_version": "0.3.0",
   "modules": [
     {
       "id": "core",
@@ -70,6 +70,17 @@
         "FORGE Execute:"
       ],
       "status": "source-inspected"
+    },
+    {
+      "id": "intelligence",
+      "version": "0.3.0",
+      "path": "modules/INTELLIGENCE.md",
+      "triggers": [
+        "FORGE Evaluate:",
+        "FORGE Select:",
+        "FORGE Improve:"
+      ],
+      "status": "proposed"
     }
   ]
 }

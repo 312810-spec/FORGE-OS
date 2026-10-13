@@ -1,0 +1,35 @@
+{
+  "results": [
+    {
+      "id": "route-audit",
+      "status": "routed",
+      "output": "core and assurance"
+    },
+    {
+      "id": "missing-sources",
+      "status": "blocked",
+      "output": "source unavailable"
+    },
+    {
+      "id": "no-approval",
+      "status": "read-only",
+      "output": "audit completed"
+    },
+    {
+      "id": "source-citation",
+      "status": "verified",
+      "output": "source checked",
+      "evidence": [
+        {
+          "source": "fixture:source",
+          "observation": "example fixture"
+        }
+      ]
+    },
+    {
+      "id": "runtime-honesty",
+      "status": "untested",
+      "output": "runtime test unavailable"
+    }
+  ]
+}

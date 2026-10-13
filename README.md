@@ -1,35 +1,25 @@
 # FORGE OS
 
-**Reusable, evidence-led AI delivery framework** · v0.2.0 candidate · Status: static tooling under validation
+**Reusable, versioned, evidence-led AI framework** · v0.3.0 candidate
 
-FORGE OS is not a conventional operating system. It is a modular, version-controlled methodology plus lightweight tools for better AI deliverables, grounded in evidence and human approval.
+FORGE OS is a methodology and lightweight execution-quality toolkit, not a general-purpose computer operating system. **AI prepares. User reviews. User approves.**
 
-**Core rule:** AI prepares. Human reviews. Human approves.
+## Start
+- [ChatGPT Project adapter v0.3](integrations/CHATGPT_V03.md) — scoped, manually configured callouts
+- [Core](core/OPERATING_CONTRACT.md) and [module registry](registry/modules.json)
+- [Intelligence and Evaluation](modules/INTELLIGENCE.md)
+- [Research cross-reference](research/V0.2-CROSS-REFERENCE.md)
+- [Release quality gates](quality/GATES.md)
 
-## Quick start
-- In ChatGPT, use [v0.2 project adapter](integrations/CHATGPT_V02.md) and configure access to a pinned FORGE-OS release.
-- Call `FORGE:`, `FORGE Assurance:`, `UI + UX:`, `RE:`, `Research:`, `Artifact:` or `FORGE Execute:`.
-- In a checkout, try `python engine/router.py --json "RE: inspect tabs"` to route to a module.
-- Run `python scripts/health_report.py` for deterministic tests and a machine-readable report.
+## Runnable checks
+```bash
+python scripts/validate.py
+python -m unittest discover -s tests -v
+python engine/router.py --json "FORGE Assurance: audit draft"
+python engine/evaluate.py --suite benchmarks/suite.json --baseline benchmarks/fixtures/baseline.json --candidate benchmarks/fixtures/candidate.json
+```
 
-## What v0.2 adds
-- [Versioned callable-module router](modules/ROUTING.md) with tested lexical routing. A route is **not** permission to act.
-- [Checkpoint contract and utility](modules/CHECKPOINTS.md) for preserving non-sensitive local task state.
-- [Research cross-reference](research/V0.2-CROSS-REFERENCE.md) covering LangGraph, Microsoft Agent Framework, OpenAI Agents SDK, Promptfoo, MCP and agent methodology.
-- [Weekly GitHub Actions health](.github/workflows/health.yml), manual dispatch and downloadable test evidence; no external credentials needed.
-- [Focused tests](tests/test_router.py), a reusable assurance release gate and clearer integration boundaries.
+## Scope and honesty
+v0.3 implements deterministic capability-based routing and regression evaluation with synthetic fixtures. The candidate fixture is hand-authored, not produced by a live model; its improved score is not proof of better AI results. GitHub Actions tests and archives reports. No provider SDK, live model execution, actual per-token billing, independent human grading or autonomous module improvement is implemented. Other ChatGPT projects require the integration contract and accessible source.
 
-## Documentation
-- [FORGE Core](core/OPERATING_CONTRACT.md)
-- [Module registry](registry/modules.json)
-- [Assurance](modules/ASSURANCE.md)
-- [UI/UX](modules/UI_UX.md)
-- [Reverse Engineering](modules/REVERSE_ENGINEERING.md)
-- [Research](modules/RESEARCH.md)
-- [Artifact production](modules/ARTIFACTS.md)
-- [Orchestration](modules/ORCHESTRATION.md)
-- [v0.2 integration](integrations/CHATGPT_V02.md)
-
-**Boundaries:** ChatGPT callouts are conventions, not globally registered native commands. The router does not operate models or external tools. CI is static/testing automation, not a running autonomous AI agent. Newest authoritative project evidence always overrides stale handoffs; no confidential cross-project data sharing.
-
-Quality progression: proposed → source-inspected → static-tested → runtime-tested → adopted. Only mark actual checks complete.
+See [v0.2 design](decisions/0002-v02.md) and [v0.3 decision](decisions/0003-v03.md).

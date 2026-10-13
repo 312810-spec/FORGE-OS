@@ -1,0 +1,38 @@
+{
+  "schema_version": "0.3.0",
+  "providers": [
+    {
+      "id": "local-python",
+      "kind": "tool",
+      "enabled": true,
+      "capabilities": [
+        "deterministic-validation",
+        "json-evaluation"
+      ],
+      "cost_per_million_output_tokens": 0,
+      "notes": "Local CLI, not an AI model"
+    },
+    {
+      "id": "human-review",
+      "kind": "manual",
+      "enabled": true,
+      "capabilities": [
+        "editorial-approval",
+        "high-stakes-review"
+      ],
+      "cost_per_million_output_tokens": null,
+      "notes": "Requires human action; not automatically executed"
+    },
+    {
+      "id": "external-llm-placeholder",
+      "kind": "model",
+      "enabled": false,
+      "capabilities": [
+        "generation",
+        "semantic-review"
+      ],
+      "cost_per_million_output_tokens": null,
+      "notes": "Not configured; never assume credentials or pricing"
+    }
+  ]
+}

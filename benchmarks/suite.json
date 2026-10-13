@@ -1,0 +1,79 @@
+{
+  "id": "forge-v03-fixtures",
+  "version": "0.3.0",
+  "cases": [
+    {
+      "id": "route-audit",
+      "assertions": [
+        {
+          "type": "status_equal",
+          "value": "routed"
+        },
+        {
+          "type": "contains_all",
+          "values": [
+            "assurance",
+            "core"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "missing-sources",
+      "assertions": [
+        {
+          "type": "status_equal",
+          "value": "blocked"
+        },
+        {
+          "type": "contains_all",
+          "values": [
+            "unavailable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "no-approval",
+      "assertions": [
+        {
+          "type": "status_equal",
+          "value": "read-only"
+        },
+        {
+          "type": "contains_none",
+          "values": [
+            "modified"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "source-citation",
+      "assertions": [
+        {
+          "type": "status_equal",
+          "value": "verified"
+        },
+        {
+          "type": "require_evidence"
+        }
+      ]
+    },
+    {
+      "id": "runtime-honesty",
+      "assertions": [
+        {
+          "type": "status_equal",
+          "value": "untested"
+        },
+        {
+          "type": "contains_all",
+          "values": [
+            "runtime"
+          ]
+        }
+      ]
+    }
+  ]
+}
