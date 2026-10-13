@@ -1,0 +1,25 @@
+name: FORGE Weekly Health
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 0 * * 1'
+permissions:
+  contents: read
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run health checks and produce evidence
+        run: python scripts/health_report.py
+      - name: Archive results even if tests fail
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forge-health-report
+          path: reports/health-latest.json
+          if-no-files-found: warn

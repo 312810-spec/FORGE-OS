@@ -1,40 +1,40 @@
 {
   "schema_version": "1.0",
-  "framework_version": "0.1.0",
+  "framework_version": "0.2.0",
   "modules": [
     {
       "id": "core",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "path": "core/OPERATING_CONTRACT.md",
       "triggers": [
         "FORGE:",
         "FORGE Plan:"
       ],
-      "status": "proposed"
+      "status": "source-inspected"
     },
     {
       "id": "assurance",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "path": "modules/ASSURANCE.md",
       "triggers": [
         "FORGE Assurance:"
       ],
-      "status": "proposed"
+      "status": "source-inspected"
     },
     {
       "id": "ui-ux",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "path": "modules/UI_UX.md",
       "triggers": [
         "UI:",
         "UX:",
         "UI + UX:"
       ],
-      "status": "proposed"
+      "status": "source-inspected"
     },
     {
       "id": "reverse-engineering",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "path": "modules/REVERSE_ENGINEERING.md",
       "triggers": [
         "RE:",
@@ -42,34 +42,34 @@
         "UX reverse:",
         "UI + UX reverse:"
       ],
-      "status": "proposed"
+      "status": "source-inspected"
     },
     {
       "id": "research",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "path": "modules/RESEARCH.md",
       "triggers": [
         "Research:"
       ],
-      "status": "proposed"
+      "status": "source-inspected"
     },
     {
       "id": "artifacts",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "path": "modules/ARTIFACTS.md",
       "triggers": [
         "Artifact:"
       ],
-      "status": "proposed"
+      "status": "source-inspected"
     },
     {
       "id": "orchestration",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "path": "modules/ORCHESTRATION.md",
       "triggers": [
         "FORGE Execute:"
       ],
-      "status": "proposed"
+      "status": "source-inspected"
     }
   ]
 }
