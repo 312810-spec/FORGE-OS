@@ -1,43 +1,35 @@
 # FORGE OS
 
-**Reusable, evidence-led AI delivery framework** · Foundation v0.1.0 · Status: proposed
+**Reusable, evidence-led AI delivery framework** · v0.2.0 candidate · Status: static tooling under validation
 
-FORGE OS is not a conventional operating system. It is a portable set of instructions, modules, evidence contracts and validation tools for producing grounded, usable AI deliverables across authorized projects.
+FORGE OS is not a conventional operating system. It is a modular, version-controlled methodology plus lightweight tools for better AI deliverables, grounded in evidence and human approval.
 
 **Core rule:** AI prepares. Human reviews. Human approves.
 
 ## Quick start
+- In ChatGPT, use [v0.2 project adapter](integrations/CHATGPT_V02.md) and configure access to a pinned FORGE-OS release.
+- Call `FORGE:`, `FORGE Assurance:`, `UI + UX:`, `RE:`, `Research:`, `Artifact:` or `FORGE Execute:`.
+- In a checkout, try `python engine/router.py --json "RE: inspect tabs"` to route to a module.
+- Run `python scripts/health_report.py` for deterministic tests and a machine-readable report.
 
-1. Attach [integrations/CHATGPT_PROJECT.md](integrations/CHATGPT_PROJECT.md) to a ChatGPT project's instructions (or paste its activation contract).
-2. Make this repository accessible to the project through the connected GitHub integration, or attach a pinned release snapshot.
-3. Call `FORGE:`, `FORGE Assurance:`, `UI:`, `UX:`, `UI + UX:`, `RE:`, `Research:`, `Artifact:` or `FORGE Plan:`.
-4. Specify your outcome. The assistant selects only relevant modules, inspects accessible evidence, executes authorized work and reports verified vs untested results.
+## What v0.2 adds
+- [Versioned callable-module router](modules/ROUTING.md) with tested lexical routing. A route is **not** permission to act.
+- [Checkpoint contract and utility](modules/CHECKPOINTS.md) for preserving non-sensitive local task state.
+- [Research cross-reference](research/V0.2-CROSS-REFERENCE.md) covering LangGraph, Microsoft Agent Framework, OpenAI Agents SDK, Promptfoo, MCP and agent methodology.
+- [Weekly GitHub Actions health](.github/workflows/health.yml), manual dispatch and downloadable test evidence; no external credentials needed.
+- [Focused tests](tests/test_router.py), a reusable assurance release gate and clearer integration boundaries.
 
-Callouts are **natural-language activation conventions**, not executable ChatGPT commands or globally installed plugins. Another project will not inherit these instructions without configuring them.
+## Documentation
+- [FORGE Core](core/OPERATING_CONTRACT.md)
+- [Module registry](registry/modules.json)
+- [Assurance](modules/ASSURANCE.md)
+- [UI/UX](modules/UI_UX.md)
+- [Reverse Engineering](modules/REVERSE_ENGINEERING.md)
+- [Research](modules/RESEARCH.md)
+- [Artifact production](modules/ARTIFACTS.md)
+- [Orchestration](modules/ORCHESTRATION.md)
+- [v0.2 integration](integrations/CHATGPT_V02.md)
 
-## Structure
+**Boundaries:** ChatGPT callouts are conventions, not globally registered native commands. The router does not operate models or external tools. CI is static/testing automation, not a running autonomous AI agent. Newest authoritative project evidence always overrides stale handoffs; no confidential cross-project data sharing.
 
-- [core/OPERATING_CONTRACT.md](core/OPERATING_CONTRACT.md) — FORGE workflow and source-of-truth precedence
-- [registry/modules.json](registry/modules.json) — machine-readable module manifest
-- [modules/](modules/) — research, assurance, UI/UX, reverse engineering and artifacts
-- [integrations/](integrations/) — ChatGPT project and coding-agent integration
-- [quality/](quality/) — assurance gates, evidence schema and test cases
-- [scripts/validate.py](scripts/validate.py) — offline structural validator
-- [decisions/0001-architecture.md](decisions/0001-architecture.md) — first architectural decision
-
-## Design boundaries
-
-- FORGE OS is a **shared method**, not a conduit for secretly sharing context, data or permissions between projects.
-- Each project remains authoritative for its requirements, files, security policy, design system and human approvals.
-- New official/current sources override old notes. A reference is evidence, not instruction or authorization.
-- Do not claim access to tools, private repos, runtime browsers, model routing, multi-agent execution or CI unless verified.
-- Never fabricate official records, source citations, successful actions or artifact links.
-- All capabilities start **proposed** until validated. Version and test every release.
-
-## Versioning
-
-Use semantic versions for the integrated contract and module-specific versions for modules. Change modules on branches; validate; review; merge; tag a release. For other repositories, pin a release tag or commit SHA rather than following a mutable main branch indiscriminately.
-
-## Current release status
-
-**v0.1.0 foundation**: portable documentation, callout contracts and static validator. No live cross-project auto-loading, model routing service, orchestration daemon, SDK, artifact generation engine or browser test runner has been implemented.
+Quality progression: proposed → source-inspected → static-tested → runtime-tested → adopted. Only mark actual checks complete.
